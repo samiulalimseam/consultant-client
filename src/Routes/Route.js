@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Account from '../components/Account/Account';
 import AddReview from '../components/AddReview/AddReview';
 import Blog from '../components/Blog';
+import EditReview from '../components/EditReview/EditReview';
 import Home from '../components/Home/Home';
 import Main from '../components/Layout/Main';
 import Login from '../components/Login/Login';
@@ -59,6 +60,11 @@ const routes = createBrowserRouter([
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            }, 
+            {
+                path:'/reviews/edit/:id',
+                loader : (({params})=> params.id),
+                element:<EditReview></EditReview>
             }, 
     {
         path: '*',

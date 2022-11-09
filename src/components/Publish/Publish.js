@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../context/UserContext';
 
 const Publish = () => {
     const {user} = useContext(AuthContext);
+    const navigate = useNavigate()
     const handleSubmit = (e) =>{
         e.preventDefault()
         const form = e.target;
@@ -33,7 +36,13 @@ const Publish = () => {
             },
             body: JSON.stringify(service)
         })
-        .then(res=> console.log(res))
+        .then(res=> {
+            toast('Service Added');
+            console.log(res)
+            setTimeout(() => {
+                navigate('/services')
+            }, 3000);
+        })
         .catch(err=>console.log(err))
     }
     return (
@@ -53,6 +62,7 @@ const Publish = () => {
 
                 </form>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

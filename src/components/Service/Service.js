@@ -6,7 +6,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { AuthContext } from '../../context/UserContext';
 
 const Service = () => {
-  const {setNewTitle} = useContext(AuthContext)
+  const {setNewTitle,user} = useContext(AuthContext)
     const service = useLoaderData();
     const [reviews,setReviews] = useState([])
     setNewTitle(('Service- Globaldesk'))
@@ -54,7 +54,7 @@ const Service = () => {
         {
           reviews.map(review=><Review key={review._id} review={review}></Review>)
         }
-        <Link to={`/addreview/${service._id}`} className="btn btn-sm btn-warning font-medium" >Write a Review</Link>
+        <Link to={`/addreview/${service._id}`} className="btn btn-sm btn-warning font-medium" >{user?.email && 'Write a Review' }{!user?.email && 'Loginto Write a Review' }</Link>
     </div>
 </div>
             </div>

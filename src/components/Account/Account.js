@@ -4,7 +4,8 @@ import {BiLogOutCircle} from 'react-icons/bi';
 import ReviewTable from './ReviewTable';
 import { Link } from 'react-router-dom';
 import ServiceTable from './ServiceTable';
-import {BounceLoader} from 'react-spinners';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Account = () => {
     const {user,setNewTitle,logOut} = useContext(AuthContext);
@@ -24,7 +25,7 @@ setNewTitle('Account- Globaldesk')
         .then(data=> setReviews(data))
         .catch(err=>console.log(err))
         console.log(localStorage.getItem('globaldesk-token'));
-    },[])
+    },[user])
     useEffect(()=>{
         fetch(`http://localhost:5000/userservices/${user?.email}`)
         .then(res=>res.json())
@@ -48,9 +49,9 @@ setNewTitle('Account- Globaldesk')
             </div>
             {/* buttons */}
         <div className="buttons">
-            <Link to={`/publish`} className="h-12 p-2 rounded  bg-blue-600 text-white btn-primary btn  my-3 mx-1">Publish a Service</Link>
+            <Link to={`/publish`} className="h-12 p-2 rounded  bg-warning text-black hover:text-white btn-primary btn  my-3 mx-1">Add New Service</Link>
             <Link className="h-12 p-2 rounded  bg-blue-600 text-white btn-primary btn  my-3 mx-1">Write a Blog</Link>
-            <Link className="h-12 p-2 rounded  bg-blue-600 text-white btn-primary btn  my-3 mx-1">Purchase a service</Link>
+            <Link className="h-12 p-2 rounded  bg-red-600 text-white btn-primary btn  my-3 mx-1">Purchase a service</Link>
 
         </div>
         <div className="reviews mt-3">
@@ -63,6 +64,7 @@ setNewTitle('Account- Globaldesk')
         <th className='w-2/5 bg-blue-600 text-white'>Service ID</th>
         <th className='w-2/5 bg-blue-600 text-white'>Comment</th>
         <th className='w-1/5 bg-blue-600 text-white'>Rating</th>
+        <th className='w-1/5 bg-blue-600 text-white'>Actions</th>
       </tr>
     </thead>
     <tbody>
