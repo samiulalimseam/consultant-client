@@ -3,4 +3,4 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
-// NEW_SECRET=3jk43kj4hjjk4hsadsd
+// NEW_SECRET=3jk43kj4hj
