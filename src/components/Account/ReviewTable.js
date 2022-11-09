@@ -12,7 +12,7 @@ const ReviewTable = ({review,count}) => {
     const handleDelete = ()=> {
         let permission = window.confirm('Delete Review?');
         if(permission){
-            fetch(`http://localhost:5000/review/delete/${_id}`,{
+            fetch(`https://globaldeskserver-samiulalimseam.vercel.app/review/delete/${_id}`,{
             method:'POST',
             headers: {
                 'content-type': 'aplication/json'

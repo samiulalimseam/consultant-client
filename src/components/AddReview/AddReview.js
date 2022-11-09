@@ -17,7 +17,7 @@ const AddReview = () => {
             userEmail:user?.email,
         }
         console.log(review);
-        fetch('http://localhost:5000/addreview',{
+        fetch('https://globaldeskserver-samiulalimseam.vercel.app/addreview',{
             method: 'POST',
             headers: {
                 'content-type':'application/json' 

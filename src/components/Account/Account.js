@@ -4,8 +4,7 @@ import {BiLogOutCircle} from 'react-icons/bi';
 import ReviewTable from './ReviewTable';
 import { Link } from 'react-router-dom';
 import ServiceTable from './ServiceTable';
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+
 
 const Account = () => {
     const {user,setNewTitle,logOut} = useContext(AuthContext);
@@ -15,7 +14,7 @@ setNewTitle('Account- Globaldesk')
     let count = 0;
     let count2 = 0;
     useEffect(()=>{
-        fetch(`http://localhost:5000/userreviews/${user?.email}`,{
+        fetch(`https://globaldeskserver-samiulalimseam.vercel.app/userreviews/${user?.email}`,{
             method: 'GET',
             headers: {
                 authorization: `Baerer ${localStorage.getItem('globaldesk-token')}`
@@ -27,7 +26,7 @@ setNewTitle('Account- Globaldesk')
         console.log(localStorage.getItem('globaldesk-token'));
     },[user])
     useEffect(()=>{
-        fetch(`http://localhost:5000/userservices/${user?.email}`)
+        fetch(`https://globaldeskserver-samiulalimseam.vercel.app/userservices/${user?.email}`)
         .then(res=>res.json())
         .then(data=> setServices(data))
         .catch(err=>console.log(err))

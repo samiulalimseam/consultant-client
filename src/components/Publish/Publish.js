@@ -29,7 +29,7 @@ const Publish = () => {
                 }
             ]
         }
-        fetch('http://localhost:5000/publish',{
+        fetch('https://globaldeskserver-samiulalimseam.vercel.app/publish',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

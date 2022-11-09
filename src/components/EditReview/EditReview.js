@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 const EditReview = () => {
     const [review,setreview] = useState({})
     const reviewId = useLoaderData();
-    useEffect(()=>{ fetch(`http://localhost:5000/getreviews/${reviewId}`)
+    useEffect(()=>{ fetch(`https://globaldeskserver-samiulalimseam.vercel.app/getreviews/${reviewId}`)
         .then(res=>res.json())
         .then(data=> setreview(data))
         .catch(err=> console.error(err))
@@ -20,7 +20,7 @@ const EditReview = () => {
             comment: form.comment.value,
             rating: form.rating.value
         }
-        fetch(`http://localhost:5000/editreview/${reviewId}`,{
+        fetch(`https://globaldeskserver-samiulalimseam.vercel.app/editreview/${reviewId}`,{
             method:'POST',
             headers:{
                 'content-type': 'application/json'

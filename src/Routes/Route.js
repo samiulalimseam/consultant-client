@@ -54,7 +54,7 @@ const routes = createBrowserRouter([
             },
             {
                 path:'/service/:id',
-                loader:({params})=> fetch(`http://localhost:5000/service/${params.id}`) ,
+                loader:({params})=> fetch(`https://globaldeskserver-samiulalimseam.vercel.app/service/${params.id}`) ,
                 element:<Service></Service>
             },
             {

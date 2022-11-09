@@ -6,7 +6,7 @@ const ServicesHome = ({service}) => {
     
     return (
         <div className='m-auto'>
-            <div className="card w-96  h-64 bg-base-100 shadow-xl image-full m-auto my-3   md:mr-3 text-ellipsis">
+            <div className="card w-[360px]  h-64 bg-base-100 shadow-xl image-full m-auto my-3   md:mr-3 text-ellipsis">
   <figure className=''><img src={img} alt="Shoes" /></figure>
   <div className="card-body m-auto ">
     <h2 className="card-title">{title}</h2>

@@ -11,7 +11,7 @@ const Service = () => {
     const [reviews,setReviews] = useState([])
     setNewTitle(('Service- Globaldesk'))
     useEffect(()=>{
-      fetch(`http://localhost:5000/reviews/${service._id}`)
+      fetch(`https://globaldeskserver-samiulalimseam.vercel.app/reviews/${service._id}`)
       .then(res=> res.json())
       .then(data=> setReviews(data))
       .catch(err=> console.log(err))

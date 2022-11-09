@@ -22,7 +22,7 @@ const Login = () => {
         email: user.email
       }
       //get jwt
-      fetch('http://localhost:5000/jwt',{
+      fetch('https://globaldeskserver-samiulalimseam.vercel.app/jwt',{
         method:'POST',
         headers:{
           'content-type': 'application/json'
@@ -51,7 +51,7 @@ const Login = () => {
     }
     console.log(currentUser);
     //get jwt
-    fetch('http://localhost:5000/jwt',{
+    fetch('https://globaldeskserver-samiulalimseam.vercel.app/jwt',{
       method:'POST',
       headers:{
         'content-type': 'application/json'
