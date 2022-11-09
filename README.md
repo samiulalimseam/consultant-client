@@ -1,9 +1,10 @@
 # GLOBALDESK IMMIGRATION CONSULTANCY WEBSITE
 
-1.This project has been build with react node js 
-2.Served on Firebase
-3.Firebase Authentication System
-4.Used JWT For API Security
+*This project has been build with react node js 
+*Served on Firebase
+*Firebase Authentication System
+*Used JWT For API Security
+*Server Deployed On Vercel
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
