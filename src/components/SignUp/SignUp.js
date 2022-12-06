@@ -1,5 +1,5 @@
 import React, { useContext, useTransition } from 'react';
-import  { useNavigate} from 'react-router-dom';
+import  { useLocation, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 // import { AuthContext } from '../../CONTEXT/UserContextProvider';
 
@@ -7,10 +7,13 @@ import { AuthContext } from '../../context/UserContext';
 
 
 const SignUp = () => {
+  const location = useLocation( );
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || '/'; 
   
   
    const {abc,setNewTitle,createUser,updateUser} = useContext(AuthContext);
-   const navigate = useNavigate();
+   
    setNewTitle('Sign Up- Globaldesk')
     const handleSignUp= (event)=>{
         event.preventDefault();
@@ -31,8 +34,28 @@ const SignUp = () => {
             .then(()=>navigate('/account'))
             .catch(err=>console.error(err))
             console.log(user);
-        }) 
-        .catch(err=> console.error(err))
+            const currentUser = {
+              email: user.email
+            }
+
+            fetch('https://globaldeskserver-samiulalimseam.vercel.app/jwt',{
+        method:'POST',
+        headers:{
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(currentUser)
+        
+        
+      }).then(res=>res.json())
+      .then(data=> localStorage.setItem('globaldesk-token', data.token))
+
+
+    })
+    .catch(err=> console.error(err))
+    setTimeout(() => {
+      navigate(from, { replace: true });
+    }, 1000);
+        
 
         
         }
